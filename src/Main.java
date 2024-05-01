@@ -7,15 +7,17 @@ public class Main {
         boolean salir = false;
         Scanner teclado=new Scanner(System.in);
         do{
-            System.out.print("Bienbenido a tu agenda electrponica indica que accion deseas realizar." +
+            System.out.print("Bienvenido a tu agenda electrponica indica que accion deseas realizar." +
                                "\n 1-Crear contacto." +
                                "\n 2-Eliminar contacto." +
                                "\n 3-Buscar un numero." +
                                "\n 4-Verificar un numero." +
                                "\n 5-Actualizar numero." +
                                "\n 6-Actualizar nombre." +
-                               "\n 7-Salir" +
+                               "\n 7-Cargar agenda desde archivos." +
+                               "\n 8-Salir" +
                                "\n >: ");
+            agenda.saveAgenda();
             try{
                 switch (teclado.nextInt()){
                     case 1:
@@ -45,6 +47,9 @@ public class Main {
                         else System.out.println("El nuevo nombre ya existe, debe introducir otro");
                         break;
                     case 7:
+                        agenda.loadAgendaFromFiles();
+                        break;
+                    case 8:
                         salir=true;
                         break;
                     default:
